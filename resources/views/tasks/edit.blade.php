@@ -22,7 +22,7 @@
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Status</label>
-                        <select name="status" class="mt-1 block w-full rounded-md border-gray-300 text-sm shadow-sm">
+                        <select name="status" class="mt-1 block h-11 w-full rounded-xl border-zinc-200 bg-zinc-50 text-sm shadow-sm focus:border-amber-500 focus:ring-amber-500">
                             <option value="pending" {{ old('status', $task->status) === 'pending' ? 'selected' : '' }}>Pending</option>
                             <option value="in_progress" {{ old('status', $task->status) === 'in_progress' ? 'selected' : '' }}>In Progress</option>
                             <option value="completed" {{ old('status', $task->status) === 'completed' ? 'selected' : '' }}>Completed</option>
@@ -32,7 +32,7 @@
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Priority</label>
-                        <select name="priority" class="mt-1 block w-full rounded-md border-gray-300 text-sm shadow-sm">
+                        <select name="priority" class="mt-1 block h-11 w-full rounded-xl border-zinc-200 bg-zinc-50 text-sm shadow-sm focus:border-amber-500 focus:ring-amber-500">
                             <option value="low" {{ old('priority', $task->priority) === 'low' ? 'selected' : '' }}>Low</option>
                             <option value="medium" {{ old('priority', $task->priority) === 'medium' ? 'selected' : '' }}>Medium</option>
                             <option value="high" {{ old('priority', $task->priority) === 'high' ? 'selected' : '' }}>High</option>

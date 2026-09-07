@@ -12,26 +12,41 @@
         @endif
 
         <!-- Filter and Search Form -->
-        <form method="GET" action="{{ route('tasks.index') }}" class="bg-white p-4 rounded-lg shadow-sm grid grid-cols-1 md:grid-cols-4 gap-4">
-            <input type="text" name="search" value="{{ request('search') }}" placeholder="Search title or description..." class="rounded-md border-gray-300 text-sm focus:ring-indigo-500 focus:border-indigo-500">
-            
-            <select name="status" class="rounded-md border-gray-300 text-sm focus:ring-indigo-500 focus:border-indigo-500">
-                <option value="">All Statuses</option>
-                <option value="pending" {{ request('status') === 'pending' ? 'selected' : '' }}>Pending</option>
-                <option value="in_progress" {{ request('status') === 'in_progress' ? 'selected' : '' }}>In Progress</option>
-                <option value="completed" {{ request('status') === 'completed' ? 'selected' : '' }}>Completed</option>
-            </select>
+        <form method="GET" action="{{ route('tasks.index') }}" class="grid grid-cols-1 gap-4 rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm md:grid-cols-4">
+            <label class="block">
+                <span class="mb-2 block text-xs font-semibold uppercase tracking-wide text-zinc-500">Search</span>
+                <input type="text" name="search" value="{{ request('search') }}" placeholder="Title or description" class="h-11 w-full rounded-xl border-zinc-200 bg-zinc-50 px-3 text-sm placeholder:text-zinc-400 focus:border-amber-500 focus:ring-amber-500">
+            </label>
 
-            <select name="priority" class="rounded-md border-gray-300 text-sm focus:ring-indigo-500 focus:border-indigo-500">
-                <option value="">All Priorities</option>
-                <option value="low" {{ request('priority') === 'low' ? 'selected' : '' }}>Low</option>
-                <option value="medium" {{ request('priority') === 'medium' ? 'selected' : '' }}>Medium</option>
-                <option value="high" {{ request('priority') === 'high' ? 'selected' : '' }}>High</option>
-            </select>
+            <label class="block">
+                <span class="mb-2 block text-xs font-semibold uppercase tracking-wide text-zinc-500">Status</span>
+                <span class="relative block">
+                    <select name="status" class="h-11 w-full appearance-none rounded-xl border-zinc-200 bg-zinc-50 px-3 pr-10 text-sm focus:border-amber-500 focus:ring-amber-500">
+                        <option value="">All statuses</option>
+                        <option value="pending" {{ request('status') === 'pending' ? 'selected' : '' }}>Pending</option>
+                        <option value="in_progress" {{ request('status') === 'in_progress' ? 'selected' : '' }}>In progress</option>
+                        <option value="completed" {{ request('status') === 'completed' ? 'selected' : '' }}>Completed</option>
+                    </select>
+                    <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.168l3.71-3.938a.75.75 0 1 1 1.08 1.04l-4.25 4.51a.75.75 0 0 1-1.08 0l-4.25-4.51a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" /></svg>
+                </span>
+            </label>
 
-            <div class="flex gap-2">
-                <button type="submit" class="w-full px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 text-sm">Apply</button>
-                <a href="{{ route('tasks.index') }}" class="w-full text-center px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 text-sm">Reset</a>
+            <label class="block">
+                <span class="mb-2 block text-xs font-semibold uppercase tracking-wide text-zinc-500">Priority</span>
+                <span class="relative block">
+                    <select name="priority" class="h-11 w-full appearance-none rounded-xl border-zinc-200 bg-zinc-50 px-3 pr-10 text-sm focus:border-amber-500 focus:ring-amber-500">
+                        <option value="">All priorities</option>
+                        <option value="low" {{ request('priority') === 'low' ? 'selected' : '' }}>Low</option>
+                        <option value="medium" {{ request('priority') === 'medium' ? 'selected' : '' }}>Medium</option>
+                        <option value="high" {{ request('priority') === 'high' ? 'selected' : '' }}>High</option>
+                    </select>
+                    <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.168l3.71-3.938a.75.75 0 1 1 1.08 1.04l-4.25 4.51a.75.75 0 0 1-1.08 0l-4.25-4.51a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" /></svg>
+                </span>
+            </label>
+
+            <div class="flex items-end gap-2">
+                <button type="submit" class="h-11 w-full rounded-xl bg-zinc-900 px-4 text-sm font-semibold text-white transition hover:bg-zinc-700">Apply filters</button>
+                <a href="{{ route('tasks.index') }}" class="flex h-11 w-full items-center justify-center rounded-xl border border-zinc-200 px-4 text-sm font-semibold text-zinc-600 transition hover:bg-zinc-50">Reset</a>
             </div>
         </form>
 
