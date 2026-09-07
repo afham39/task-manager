@@ -10,7 +10,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('tasks', TaskController::class);
+    Route::resource('tasks', TaskController::class)->except('show');
 });
 
 require __DIR__.'/settings.php';

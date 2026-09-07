@@ -1,12 +1,10 @@
-<x-app-layout>
-    <x-slot name="header">
-        <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">My Tasks</h2>
-            <a href="{{ route('tasks.create') }}" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 text-sm font-medium">Create Task</a>
-        </div>
-    </x-slot>
+<x-layouts::app :title="__('My Tasks')">
 
     <div class="py-6 max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-4">
+        <div class="flex items-center justify-between">
+            <h1 class="text-xl font-semibold">My Tasks</h1>
+            <a href="{{ route('tasks.create') }}" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 text-sm font-medium">Create Task</a>
+        </div>
         @if(session('success'))
             <div class="p-4 bg-green-100 border border-green-200 text-green-700 rounded-md text-sm">
                 {{ session('success') }}
@@ -84,4 +82,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-layouts::app>

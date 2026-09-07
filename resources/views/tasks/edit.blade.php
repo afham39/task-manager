@@ -1,9 +1,7 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">Edit Task</h2>
-    </x-slot>
+<x-layouts::app :title="__('Edit Task')">
 
     <div class="py-6 max-w-2xl mx-auto sm:px-6 lg:px-8">
+        <h1 class="mb-4 text-xl font-semibold">Edit Task</h1>
         <div class="bg-white p-6 rounded-lg shadow-sm">
             <form method="POST" action="{{ route('tasks.update', $task) }}" class="space-y-4">
                 @csrf
@@ -56,4 +54,4 @@
             </form>
         </div>
     </div>
-</x-app-layout>
+</x-layouts::app>
